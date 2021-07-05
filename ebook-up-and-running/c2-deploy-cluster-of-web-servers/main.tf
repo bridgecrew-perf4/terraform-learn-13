@@ -112,7 +112,7 @@ resource "aws_security_group" "instance" {
         to_port     = var.server_port
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
-        #security_groups = [aws_security_group.alb.id] # Use security_groups "allow only traffic from ELB" instead "anywhere(cidr_blocks)" would be more secure.
+        security_groups = [aws_security_group.alb.id] # Use security_groups "allow only traffic from ELB" instead "anywhere(cidr_blocks)" would be more secure.
     }
 
     egress {
